@@ -18,18 +18,21 @@ const app = express();
 
 const port = 8080;
 
-app.use(express.json());
-app.use(express.static());
-app.use(cors());
+app.use(express.json()); // ❌ NO!
+app.use(express.static()); // ❌ NO!
+app.use(cors()); // ❌ NO!
 
+// ❌ NO!
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+// ❌ NO!
 app.get("/route-1", (req, res) => {
   res.send("Hello Route1!");
 });
 
+// ❌ NO!
 app.get("/route-2", (req, res) => {
   res.send("Hello Route2!");
 });
@@ -51,8 +54,8 @@ const app = express();
 
 const port = 8080;
 
-routes({ app, path: join(__dirname, "middlewares/**/*.middleware.js") });
-routes({ app, path: join(__dirname, "controllers/**/*.controller.js") });
+routes({ app, path: join(__dirname, "middlewares/**/*.middleware.js") }); // ✅ YES!
+routes({ app, path: join(__dirname, "controllers/**/*.controller.js") }); // ✅ YES!
 
 app.listen(port, () => console.log(`Listening on http://${ip}:${port}`));
 ```
