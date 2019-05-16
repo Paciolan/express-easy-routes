@@ -13,7 +13,6 @@ Each route requires manual configuration with the `app`. This can become verbose
 const routes = require("@paciolan/express-easy-routes");
 const cors = require("cors");
 const express = require("express");
-const { join } = require("path");
 const app = express();
 
 const port = 8080;
@@ -49,14 +48,13 @@ Now adding a route no longer requires manually configuration.
 ```javascript
 const routes = require("@paciolan/express-easy-routes");
 const express = require("express");
-const { join } = require("path");
 const app = express();
 
 const port = 8080;
 
 // ✅ YES!
-routes({ app, path: join(__dirname, "middlewares/**/*.middleware.js") });
-routes({ app, path: join(__dirname, "controllers/**/*.controller.js") });
+routes({ app, path: __dirname + "/middlewares/**/*.middleware.js" });
+routes({ app, path: __dirname + "/controllers/**/*.controller.js" });
 
 app.listen(port, () => console.log(`Listening on http://${ip}:${port}`));
 ```
