@@ -1,0 +1,49 @@
+{
+  "name": "@paciolan/express-easy-routes",
+  "version": "0.0.0-semantic-versioning",
+  "description": "",
+  "author": "Paciolan",
+  "license": "MIT",
+  "main": "src/app.js",
+  "repository": {
+    "type": "ssh",
+    "url": "git@gitlabdev.paciolan.info:development/library/javascript/react/express-easy-routes.git"
+  },
+  "scripts": {
+    "cz": "git-cz",
+    "test": "jest --verbose",
+    "test:changed": "npm run test -- --changedSince HEAD",
+    "test:coverage": "npm run test -- --coverage",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "glob": "^7.1.4",
+    "lodash.zip": "^4.2.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.6.1",
+    "@commitlint/config-conventional": "^7.6.0",
+    "@types/jest": "^24.0.13",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "express": "^4.16.4",
+    "express-serve-static-core": "^0.1.1",
+    "git-cz": "^3.0.1",
+    "husky": "^2.3.0",
+    "jest": "^24.7.1",
+    "prettier": "^1.17.0"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "npm run lint && npm run test:changed",
+      "pre-push": "npm run lint && npm run test:coverage"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/git-cz"
+    }
+  }
+}
