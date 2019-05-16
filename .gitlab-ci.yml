@@ -2,6 +2,7 @@ image: paciolanhub/alpine-node-dev:10.15.3c
 
 variables:
   REPO_URL: gitlabdev.paciolan.info
+  GITHUB_URL: https://github.com/Paciolan/express-easy-routes
 
 stages:
   - build
@@ -39,6 +40,9 @@ Deploy:
     # publish
     - semantic-release-gitlab
     - npm-publish-git-tag --access public
+
+    # set repository to github for npm link
+    - node -e "require('fs').writeFileSync('./package.json', JSON.stringify(Object.assign(require('./package.json'), {repository:{type:'git',url:'$GITHUB_URL'}}), null, 2), 'utf8')"
 
     # debug
     - echo published to https://www.npmjs.com/package/$(node -p "require('./package.json').name")
