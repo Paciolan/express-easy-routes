@@ -1,4 +1,4 @@
-# Express Easy Routes
+# ![Route Icon](https://raw.githubusercontent.com/Paciolan/express-easy-routes/master/media/route_1604183-42x42.png) Express Easy Routes
 
 [Convention over Configuration](https://en.wikipedia.org/wiki/Convention_over_configuration)
 library to load Express Routes without having to configure each route.
