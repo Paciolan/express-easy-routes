@@ -54,8 +54,9 @@ const app = express();
 
 const port = 8080;
 
-routes({ app, path: join(__dirname, "middlewares/**/*.middleware.js") }); // ✅ YES!
-routes({ app, path: join(__dirname, "controllers/**/*.controller.js") }); // ✅ YES!
+// ✅ YES!
+routes({ app, path: join(__dirname, "middlewares/**/*.middleware.js") });
+routes({ app, path: join(__dirname, "controllers/**/*.controller.js") });
 
 app.listen(port, () => console.log(`Listening on http://${ip}:${port}`));
 ```
