@@ -1,4 +1,3 @@
-const express = require("express-serve-static-core"); // eslint-disable-line no-unused-vars
 const push = require("./push");
 
 const getRouter = module => module.router;
