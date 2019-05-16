@@ -36,7 +36,7 @@ app.get("/route-2", (req, res) => {
   res.send("Hello Route2!");
 });
 
-app.listen(port, () => console.log(`Listening on http://${ip}:${port}`));
+app.listen(port, () => console.log(`Listening on http://localhost:${port}`));
 ```
 
 ## The Solution
@@ -56,7 +56,7 @@ const port = 8080;
 routes({ app, path: __dirname + "/middlewares/**/*.middleware.js" });
 routes({ app, path: __dirname + "/controllers/**/*.controller.js" });
 
-app.listen(port, () => console.log(`Listening on http://${ip}:${port}`));
+app.listen(port, () => console.log(`Listening on http://localhost:${port}`));
 ```
 
 ## Install
