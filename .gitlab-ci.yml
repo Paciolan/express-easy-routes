@@ -38,7 +38,7 @@ Deploy:
   script:
     # publish
     - semantic-release-gitlab
-    - npm-publish-git-tag
+    - npm-publish-git-tag --access public
 
     # debug
     - echo published to https://www.npmjs.com/package/$(node -p "require('./package.json').name")
