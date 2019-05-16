@@ -67,11 +67,11 @@ app.listen(port, () => console.log(`Listening on http://${ip}:${port}`));
 npm install @paciolan/express-easy-routes
 ```
 
-# Adding a Route
+# Example Routes
+
+## `middleware/cors.middleware.js`
 
 In this example, I am going to add the CORS middlware.
-
-Create a new file `middleware/cors.middleware.js`:
 
 ```javascript
 const express = require("express");
@@ -88,7 +88,9 @@ module.exports = {
 
 That's it! We just added CORS into our express app!
 
-Next let's create our main route in `controllers/index.controller.js`
+## `controllers/index.controller.js`
+
+Next let's create our main controller route.
 
 ```javascript
 const express = require("express");
@@ -104,6 +106,37 @@ module.exports = {
 };
 ```
 
+## `middlewares/profiler.middleware.js`
+
+Create a profiler that will first, create a timer, then finally log out the time.
+
+note: middleware that needs to run first, should have a low `order`.
+
+```javascript
+const express = require("express");
+const router = express.Router();
+
+router.use((req, res, next) => {
+  const start = process.hrtime();
+
+  res.once("finish", () => {
+    const [seconds, nanoseconds] = process.hrtime(start);
+    const milliseconds = (seconds * 1000) + (nanoseconds / 1000000); // prettier-ignore
+
+    console.info(
+      `${req.method} ${req.url} ${res.statusCode} ${milliseconds}ms`
+    );
+  });
+
+  next();
+});
+
+module.exports = {
+  order: 1,
+  router
+};
+```
+
 It is now easy to find the route in your directories. Copy and Paste to move routes from one project to another.
 
 ```
@@ -112,6 +145,7 @@ src/
     index.controller.js
   middlewares/
     cors.middleware.js
+    profiler.middleware.js
   app.js
 ```
 
