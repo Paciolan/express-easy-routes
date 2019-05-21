@@ -15,7 +15,11 @@ const initRoutes = ({ app, path }) => {
   validateRoutes({ paths, routes });
   const stack = getRouteStack(routes);
 
-  app.use(routes);
+  if (routes.length === 0) {
+    console.error(`Error: No routes found matching (${path})`);
+  } else {
+    app.use(routes);
+  }
 
   return stack;
 };
