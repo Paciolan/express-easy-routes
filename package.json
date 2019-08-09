@@ -9,6 +9,16 @@
     "type": "ssh",
     "url": "git@gitlabdev.paciolan.info:development/library/javascript/react/express-easy-routes.git"
   },
+  "release": {
+    "branch": "master",
+    "repositoryUrl": "git@gitlabdev.paciolan.info:development/library/javascript/react/express-easy-routes.git",
+    "tagFormat": "${version}",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm"
+    ]
+  },
   "scripts": {
     "cz": "git-cz",
     "test": "jest --verbose",
