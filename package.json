@@ -21,18 +21,18 @@
     "lodash.zip": "^4.2.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^7.6.1",
-    "@commitlint/config-conventional": "^7.6.0",
-    "@types/jest": "^24.0.13",
-    "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.2.0",
-    "eslint-plugin-prettier": "^3.0.1",
-    "express": "^4.16.4",
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "@types/jest": "^24.0.17",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "express": "^4.17.1",
     "express-serve-static-core": "^0.1.1",
-    "git-cz": "^3.0.1",
-    "husky": "^2.3.0",
-    "jest": "^24.7.1",
-    "prettier": "^1.17.0"
+    "git-cz": "^3.2.1",
+    "husky": "^3.0.3",
+    "jest": "^24.8.0",
+    "prettier": "^1.18.2"
   },
   "husky": {
     "hooks": {
